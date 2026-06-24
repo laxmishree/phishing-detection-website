@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <div class="logo">PHISHGUARD AI</div>
+
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/about">About</a>
+        <a href="/feedback">Feedback</a>
+        <a href="/contact">Contact</a>
+    </div>
+</nav>
+
+<div class="dashboard">
+
+    <h1>SECURITY DASHBOARD</h1>
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+        <div class="icon">📈</div>
+        <h2>{{total_scans}}</h2>
+        <p>Total Scans</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="icon">🛡️</div>
+        <h2>{{safe_sites}}</h2>
+        <p>Safe Websites</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="icon">🚨</div>
+        <h2>{{dangerous_sites}}</h2>
+        <p>Dangerous Websites</p>
+    </div>
+
+</div>
+       
+<div class="charts-container">
+
+    <div class="chart-box">
+        <h2>Threat Distribution</h2>
+        <canvas id="threatChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <h2>Score Distribution</h2>
+        <canvas id="scoreChart"></canvas>
+    </div>
+
+</div>
+    <div class="history-box">
+        <h2>📋 Recent Scan History</h2>
+
+</div>
+        <table>
+            <tr>
+                <th>URL</th>
+                <th>Result</th>
+            </tr>
+
+            {% for item in history %}
+<tr>
+    <td>{{ item[0] }}</td>
+    <td>{{ item[1] }}</td>
+</tr>
+{% endfor %}
+
+        </table>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+new Chart(document.getElementById("threatChart"), {
+    type: "doughnut",
+    data: {
+        labels: ["Safe", "Dangerous"],
+        datasets: [{
+            data: [
+                Number("{{safe_sites}}"),
+                Number("{{dangerous_sites}}")
+            ]
+        }]
+    }
+});
+new Chart(document.getElementById("scoreChart"), {
+    type: "bar",
+    data: {
+        labels: ["Safe", "Dangerous"],
+        datasets: [{
+            data: [
+                Number("{{safe_sites}}"),
+                Number("{{dangerous_sites}}")
+            ]
+        }]
+    }
+});
+
+</script>
+</body>
+</html>

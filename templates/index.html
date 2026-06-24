@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Detection</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='style.css') }}">
+
+</head>
+<body>
+    <nav>
+    <div class="logo">
+        PHISHGUARD AI
+    </div>
+
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/about">About</a>
+        <a href="/feedback">Feedback</a>
+        <a href="/contact">Contact</a>
+    </div>
+</nav>
+    <div class="hero">
+
+    <h1 class="main-title">
+        AI PHISHING DETECTION
+    </h1>
+
+    <p class="subtitle">
+        Protect Yourself From Fraudulent Websites, Scams and Phishing Attacks
+    </p>
+
+    
+   <form action="/predict" method="POST" class="scan-form">
+
+    <div class="scan-container">
+
+        <span class="search-icon">🔍</span>
+
+        <input
+            type="text"
+            name="url"
+            placeholder="Enter website URL to scan (e.g. example.com)"
+            class="url-box"
+            required
+        >
+
+        <button type="submit" class="scan-btn">
+            ⚡ SCAN NOW
+        </button>
+
+    </div>
+
+</form>
+    
+
+<!-- PASTE HERE -->
+
+<!-- Hero Shield -->
+
+<div class="hero-icon">🛡️</div>
+
+<!-- Features -->
+
+<div class="features">
+
+    <div class="feature-card">
+        <h3>🛡️ AI Detection</h3>
+        <p>
+            Detect phishing websites using Machine Learning algorithms.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h3>⚡ Instant Scan</h3>
+        <p>
+            Get website security results within seconds.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h3>🔒 Safe Browsing</h3>
+        <p>
+            Protect your passwords and personal information online.
+        </p>
+    </div>
+
+</div>
+
+<!-- Statistics -->
+
+
+<!-- How It Works -->
+
+<div class="how-it-works">
+
+    <h2 class="section-title">HOW IT WORKS</h2>
+
+<div class="flow-row">
+
+    <div class="flow-box">
+        🌐
+        <h3>Enter URL</h3>
+        <p>Paste website address</p>
+    </div>
+
+    <div class="flow-arrow">➜</div>
+
+    <div class="flow-box">
+        🤖
+        <h3>AI Analysis</h3>
+        <p>ML model analyzes website</p>
+    </div>
+
+    <div class="flow-arrow">➜</div>
+
+    <div class="flow-box">
+        🛡️
+        <h3>Threat Check</h3>
+        <p>Verify phishing indicators</p>
+    </div>
+
+    <div class="flow-arrow">➜</div>
+
+    <div class="flow-box">
+        ✅
+        <h3>Result</h3>
+        <p>Safe or Phishing</p>
+    </div>
+
+</div>
+
+</div>
+<!-- END PASTE -->
+
+</div>
+
+</div>
+    
+</body>
+</html>
